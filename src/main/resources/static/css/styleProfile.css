@@ -1,0 +1,252 @@
+
+.profile-header {
+    margin-top: -1px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.profile-header-top {
+    background: #1d2129;
+    height: 200px;
+}
+
+ul.profile-header-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+    background: #fff;
+}
+
+ul.profile-header-nav li {
+    display: inline-block;
+    border-left: 1px solid #ccc;
+    padding: 13px 25px;
+}
+
+ul.profile-header-nav li:last-child {
+    border-right: 1px solid #ccc;
+}
+
+ul.profile-header-nav li:first-child {
+    width: 200px;
+    border: none;
+}
+
+.profile-header-top {
+    position: relative;
+}
+
+.profile-header-top img {
+    position: absolute;
+    left: 15px;
+    bottom: -30px;
+    border: 1px solid #ccc;
+    padding: 3px;
+    background: #fff;
+    border-radius: 5px;
+    width: 160px;
+}
+
+.input-cover-photo {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+#profile-button-add-cover {
+    display: inline-block;
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    background: #000;
+    color: gainsboro;
+    padding: 5px 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#profile-button-add-cover:hover {
+    cursor: pointer;
+    color: #fff;
+}
+
+.profile-header-top h3 {
+    position: absolute;
+    bottom: 5px;
+    color: #fff;
+    left: 200px;
+}
+
+#profile-button-update-info,
+#profile-button-view-log {
+    position: absolute;
+    background: #f6f7f9;
+    color: #000;
+    bottom: 15px;
+    padding: 3px 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+#profile-button-update-info:hover,
+#profile-button-view-log:hover {
+    text-decoration: none;
+    background-color: gainsboro;
+}
+
+#profile-button-update-info span,
+#profile-button-view-log span {
+    background: red;
+    display: inline-block;
+    padding: 2px 4px;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+#profile-button-update-info {
+    right: 200px;
+}
+
+#profile-button-view-log {
+    right: 20px;
+}
+
+.profile-body {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+.profile-body-header {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 15px;
+    background: #f6f7f9;
+}
+
+.profile-body-header h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.profile-body-content-tool a {
+    display: block;
+    color: dimgray;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 20px 20px;
+}
+
+.profile-body-content-tool a:hover {
+    color: #000;
+    font-weight: bold;
+}
+
+body{
+    background: #84889c;
+}
+
+.active {
+    border-left: 4px solid #3b5998;
+    color: #000 !important;
+    font-weight: bold;
+}
+
+.profile-body-content-editing {
+    border-left: 1px solid #ccc;
+}
+
+.profile-body-content-editing h4 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.overview-form {
+    padding-bottom: 15px;
+}
+
+.overview-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.overview-form label.light {
+    display: inline;
+    margin-right: 15px;
+}
+
+.overview-form input[type="text"],
+.overview-form input[type="url"],
+.overview-form input[type="password"],
+.overview-form textarea {
+    border: none;
+    font-size: 1em;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 10px;
+    width: 100%;
+    background-color: #e8eeef;
+    margin-bottom: 30px;
+}
+
+
+.overview-form select {
+    border: none;
+    font-size: 1em;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 10px;
+    background-color: #e8eeef;
+    margin-bottom: 30px;
+}
+
+.overview-form input[type="radio"],
+.overview-form input[type="checkbox"] {
+    margin-bottom: 30px;
+}
+
+.overview-form button {
+    padding: 5px 15px;
+}
+
+.middle-right-ads {
+    color: dimgray;
+    font-size: 0.9em;
+}
+
+.middle-right-ads h4 {
+    border-bottom: 1px solid #ccc;
+    font-size: 1.2em;
+    padding-bottom: 3px;
+}
+
+.ads-item {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.ads-item:last-child {
+    border-bottom: none;
+}
+
+.ads-item img {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.ads-item a {
+    display: block;
+    font-weight: bold;
+}
