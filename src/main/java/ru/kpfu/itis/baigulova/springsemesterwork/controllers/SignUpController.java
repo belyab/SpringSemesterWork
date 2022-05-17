@@ -42,7 +42,7 @@ public class SignUpController {
     @GetMapping(value="/confirm")
     public String accountVerified(@RequestParam(value="code") String confirmCode){
         accountService.updateState(confirmCode);
-        return "profile";
+        return "home";
     }
 }
 

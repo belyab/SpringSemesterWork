@@ -5,7 +5,10 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import ru.kpfu.itis.baigulova.springsemesterwork.dto.AccountDto;
 import ru.kpfu.itis.baigulova.springsemesterwork.model.Account;
 import ru.kpfu.itis.baigulova.springsemesterwork.security.details.AccountUserDetails;
 import ru.kpfu.itis.baigulova.springsemesterwork.service.AccountService;
@@ -22,7 +25,7 @@ public class ProfileController {
 
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/profile")
-    public String getProfile(@AuthenticationPrincipal AccountUserDetails userDetails, Model model) {
+    public String getProfilePage(@AuthenticationPrincipal AccountUserDetails userDetails, Model model) {
         Optional<Account> accountByEmail = accountService.getAccountByEmail(userDetails.getUsername());
         if (accountByEmail.isPresent()) {
             Account account = accountByEmail.get();
@@ -30,6 +33,8 @@ public class ProfileController {
         }
         return "profile";
     }
+
+
 
 
 }

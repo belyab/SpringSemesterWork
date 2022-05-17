@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.kpfu.itis.baigulova.springsemesterwork.dto.AccountDto;
 import ru.kpfu.itis.baigulova.springsemesterwork.dto.SignUpForm;
-import ru.kpfu.itis.baigulova.springsemesterwork.helper.CloudinaryHelper;
-import ru.kpfu.itis.baigulova.springsemesterwork.helper.ImageHelper;
 import ru.kpfu.itis.baigulova.springsemesterwork.model.Account;
 import ru.kpfu.itis.baigulova.springsemesterwork.repositories.AccountRepository;
 import ru.kpfu.itis.baigulova.springsemesterwork.service.AccountService;
@@ -35,7 +33,6 @@ public class AccountServiceImpl implements AccountService {
     private final AccountRepository accountRepository;
 
     private final PasswordEncoder passwordEncoder;
-    private final String DEFAULT_AVATAR = "https://res.cloudinary.com/dnvbc2mwj/image/upload/v1652702025/1_W35QUSvGpcLuxPo3SRTH4w_h95axq.png";
 
     @Autowired
     private EmailUtil emailUtil;
@@ -51,7 +48,6 @@ public class AccountServiceImpl implements AccountService {
                 .lastName(signUpForm.getLastName())
                 .email(signUpForm.getEmail().toLowerCase(Locale.ROOT))
                 .password(passwordEncoder.encode(signUpForm.getPassword()))
-                .avatar(DEFAULT_AVATAR)
                 .confirmCode(UUID.randomUUID().toString())
                 .state(Account.State.NOT_CONFIRMED)
                 .role(Account.Role.USER)
@@ -74,8 +70,8 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<AccountDto> getAllAccount() {
-        return from(accountRepository.findAllByState(Account.State.CONFIRMED));
+    public void update(AccountDto accountDto, String email) {
+        accountRepository.updateAccount(accountDto.getFirstName(), accountDto.getLastName(), passwordEncoder.encode(accountDto.getPassword()), email);
     }
 
     @Override

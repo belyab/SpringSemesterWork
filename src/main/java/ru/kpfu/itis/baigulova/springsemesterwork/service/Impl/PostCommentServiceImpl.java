@@ -1,5 +1,7 @@
 package ru.kpfu.itis.baigulova.springsemesterwork.service.Impl;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.kpfu.itis.baigulova.springsemesterwork.dto.PostCommentDto;
@@ -11,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Log4j2
 public class PostCommentServiceImpl implements PostCommentService {
 
     private final PostCommentRepository postCommentRepository;

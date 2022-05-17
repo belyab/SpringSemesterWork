@@ -37,7 +37,6 @@ public class Account {
 
     private String password;
 
-    private String avatar;
 
     @Column(length = 64)
     private String confirmCode;

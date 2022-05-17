@@ -26,7 +26,6 @@
         <div>
             <table>
                 <tr>
-                    <td><img alt="user_img" src="${author.avatar}" width="50" height="50" class="rounded-circle"></td>
 
                     <td><strong style="font-size:20px"><a href="/detailUser/${author.id}">${detailPost.accountEmail}</a></strong></td>
                     <td><small class="text-muted" style="font-size:17px"><em>${detailPost.data}</em></small></td>
@@ -43,7 +42,6 @@
             <#list postComments as comment>
                 <table>
                     <tr>
-                        <td><img alt="user_img" src="${comment.account.avatar}" width="50" height="50" class="rounded-circle"></td>
                         <td><strong style="font-size:20px"><a href="/detailUser/${comment.account.id}">${comment.account.email}</a></strong></td>
                     </tr>
                 </table>

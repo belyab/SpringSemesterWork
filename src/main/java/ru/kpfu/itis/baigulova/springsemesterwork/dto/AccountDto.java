@@ -20,10 +20,9 @@ public class AccountDto {
     private String lastName;
     private String password;
     private String email;
-    private String avatar;
 
     public static AccountDto fromModel(Account account) {
-        return new AccountDto(account.getId(),account.getFirstName(), account.getLastName(), account.getEmail(), account.getPassword(), account.getAvatar());
+        return new AccountDto(account.getId(),account.getFirstName(), account.getLastName(), account.getEmail(), account.getPassword());
     }
 
     public static AccountDto from(Account account) {
@@ -32,7 +31,6 @@ public class AccountDto {
                 .firstName(account.getFirstName())
                 .lastName(account.getLastName())
                 .password(account.getPassword())
-                .avatar(account.getAvatar())
                 .email(account.getEmail())
                 .build();
     }

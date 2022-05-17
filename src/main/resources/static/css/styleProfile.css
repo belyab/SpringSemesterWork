@@ -85,8 +85,8 @@ ul.profile-header-nav li:first-child {
     left: 200px;
 }
 
-#profile-button-update-info,
-#profile-button-view-log {
+#profile-button,
+#profile-button {
     position: absolute;
     background: #f6f7f9;
     color: #000;
@@ -96,14 +96,14 @@ ul.profile-header-nav li:first-child {
     border-radius: 2px;
 }
 
-#profile-button-update-info:hover,
-#profile-button-view-log:hover {
+#profile-button:hover,
+#profile-button:hover {
     text-decoration: none;
     background-color: gainsboro;
 }
 
-#profile-button-update-info span,
-#profile-button-view-log span {
+#profile-button span,
+#profile-button span {
     background: red;
     display: inline-block;
     padding: 2px 4px;
@@ -115,9 +115,6 @@ ul.profile-header-nav li:first-child {
     right: 200px;
 }
 
-#profile-button-view-log {
-    right: 20px;
-}
 
 .profile-body {
     background: #ffffff;

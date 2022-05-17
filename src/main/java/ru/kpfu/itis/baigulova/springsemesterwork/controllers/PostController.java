@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.kpfu.itis.baigulova.springsemesterwork.dto.AccountDto;
 import ru.kpfu.itis.baigulova.springsemesterwork.dto.PostDto;
-import ru.kpfu.itis.baigulova.springsemesterwork.helper.CloudinaryHelper;
-import ru.kpfu.itis.baigulova.springsemesterwork.helper.ImageHelper;
 import ru.kpfu.itis.baigulova.springsemesterwork.helper.TextHelper;
 import ru.kpfu.itis.baigulova.springsemesterwork.model.Post;
 import ru.kpfu.itis.baigulova.springsemesterwork.dto.PostCommentDto;

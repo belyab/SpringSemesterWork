@@ -52,6 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/profile/**").authenticated()
                 .antMatchers("/createPost/**").authenticated()
                 .antMatchers("/myPosts").authenticated()
+                .antMatchers("/orders/**").hasAuthority("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/signIn")

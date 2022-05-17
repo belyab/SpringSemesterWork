@@ -17,9 +17,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security:2.6.5'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.6.5'
     implementation 'org.springframework.boot:spring-boot-starter-freemarker:2.6.5'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.15.0'
 
-    implementation 'com.cloudinary:cloudinary-http44:1.32.0'
-    implementation 'com.cloudinary:cloudinary-taglib:1.32.0'
 
     implementation group: 'javax.mail', name: 'mail', version: '1.4.1'
 

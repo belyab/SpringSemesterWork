@@ -13,9 +13,9 @@ public interface AccountService {
     void signUp(SignUpForm form);
     void updateState(String confirmCode);
     List<AccountDto> getAllAccounts();
-    List<AccountDto> getAllAccount();
     List<AccountDto> getAccountsByEmailLike(String email);
     AccountDto getAccountById(Long userId);
     Account getRawAccountByEmail(String email);
     Optional<Account> getAccountByEmail(String email);
+    void update(AccountDto accountDto, String email);
 }

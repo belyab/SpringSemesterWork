@@ -11,11 +11,8 @@
         <ul>
             <li><a href="/home">HOME</a></li>
             <li><a href="/allPosts">POSTS</a></li>
-            <#if account?has_content>
             <li><a href="/profile">PROFILE</a></li>
-            <#else>
             <li><a href="/signIn">LOGIN</a></li>
-            </#if>
         </ul>
     </div>
 </nav>
