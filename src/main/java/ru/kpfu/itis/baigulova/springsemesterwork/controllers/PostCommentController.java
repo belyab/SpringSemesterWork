@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.kpfu.itis.baigulova.springsemesterwork.dto.AccountDto;
 import ru.kpfu.itis.baigulova.springsemesterwork.model.Account;
 import ru.kpfu.itis.baigulova.springsemesterwork.model.Post;
 import ru.kpfu.itis.baigulova.springsemesterwork.model.PostComment;
@@ -14,8 +13,6 @@ import ru.kpfu.itis.baigulova.springsemesterwork.security.details.AccountUserDet
 import ru.kpfu.itis.baigulova.springsemesterwork.service.AccountService;
 import ru.kpfu.itis.baigulova.springsemesterwork.service.PostCommentService;
 import ru.kpfu.itis.baigulova.springsemesterwork.service.PostService;
-
-import javax.servlet.http.HttpSession;
 
 @Controller
 public class PostCommentController {

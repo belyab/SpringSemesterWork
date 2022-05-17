@@ -1,40 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html >
 <head>
-    <link rel="stylesheet" href="css/stylePosts.css">
+    <link rel="stylesheet" href="css/styleDetailPost.css">
 </head>
 
 <#include 'top_nav.ftlh'>
 
 <body>
-
-<title>Статья</title>
-
-    <br>
-    <#if isMyPost??>
-        <p class="lead"><a href="/myPosts">Назад</a></p>
-    <#else>
-        <p class="lead"><a href="/allPosts">Назад</a></p>
-    </#if>
-    <br>
-
-    <#if detailPost?has_content>
-        <h1>${detailPost.title}</h1>
-        <br>
-        <div>${detailPost.text}</div>
-        <br>
-        <div>
-            <table>
-                <tr>
-
-                    <td><strong style="font-size:20px"><a href="/detailUser/${author.id}">${detailPost.accountEmail}</a></strong></td>
-                    <td><small class="text-muted" style="font-size:17px"><em>${detailPost.data}</em></small></td>
-                    <td><small class="text-muted" style="font-size:17px">Статья ${detailPost.id}</small></td>
-                </tr>
-            </table>
+<#if detailPost?has_content>
+<div class="row">
+    <div class="left-column">
+        <div class="card">
+            <h2>${detailPost.title}</h2>
+            <h2>${detailPost.accountEmail}</a></h2>
+            <h5>${detailPost.data}</h5>
+            <p>${detailPost.text}</p>
         </div>
-
-        <br>
+    </div>
 
         <#if postComments?has_content>
             <p class="lead"><strong>Комментарии:</strong></p>
@@ -42,7 +24,7 @@
             <#list postComments as comment>
                 <table>
                     <tr>
-                        <td><strong style="font-size:20px"><a href="/detailUser/${comment.account.id}">${comment.account.email}</a></strong></td>
+                        <td><strong style="font-size:20px">${comment.account.email}</a></strong></td>
                     </tr>
                 </table>
                 <div class="alert alert-dark" role="alert">
@@ -54,7 +36,7 @@
         </#if>
 
         <#if account?has_content>
-            <form action="/createPostComment/${detailPost.id}/0" method="post" novalidate>
+            <form action="/createPostComment/${detailPost.id}" method="post" novalidate>
                 <p class="lead">Введите комментарий:</p>
                 <p class="lead">
                     <label>
@@ -74,3 +56,4 @@
 
 </body>
 </html>
+

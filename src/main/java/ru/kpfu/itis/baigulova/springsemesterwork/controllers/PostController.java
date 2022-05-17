@@ -1,13 +1,11 @@
 package ru.kpfu.itis.baigulova.springsemesterwork.controllers;
 
-import com.cloudinary.utils.ObjectUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import ru.kpfu.itis.baigulova.springsemesterwork.dto.AccountDto;
 import ru.kpfu.itis.baigulova.springsemesterwork.dto.PostDto;
 import ru.kpfu.itis.baigulova.springsemesterwork.helper.TextHelper;
@@ -20,13 +18,10 @@ import ru.kpfu.itis.baigulova.springsemesterwork.service.PostCommentService;
 import ru.kpfu.itis.baigulova.springsemesterwork.service.PostService;
 
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Controller
@@ -56,7 +51,7 @@ public class PostController {
 
         model.addAttribute("allPosts", allPosts);
 
-        return "allPosts";
+        return "allPostsPage";
     }
 
     @GetMapping("/allFindPosts")
@@ -114,10 +109,10 @@ public class PostController {
 
     @GetMapping("/detailPost/{postId}/{isMyPost}")
     public String getDetailPost(@PathVariable("postId") Long postId,
-                                   @PathVariable("isMyPost") Integer isMyPost, Authentication authentication, Model model) {
+                                   @PathVariable("isMyPost") Integer isMyPost, Model model) {
 
         PostDto post = postService.getPostById(postId);
-        Account author = ((AccountUserDetails) authentication.getPrincipal()).getAccount();
+        AccountDto author = accountService.getAccountById(post.getAccountId());
         List<PostCommentDto> comments = postCommentService.getAllByPostId(post.getId());
 
         if (isMyPost == 1) {
@@ -131,7 +126,7 @@ public class PostController {
         model.addAttribute("author", author);
         model.addAttribute("detailPost", post);
 
-        return "detailPost";
+        return "detailsPost";
     }
 
     @GetMapping("/createPost")
