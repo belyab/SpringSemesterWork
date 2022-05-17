@@ -15,19 +15,18 @@ import java.util.stream.Collectors;
 @Builder
 public class OrderDto {
 
-
     private Long id;
-    private String clientEmail;
-    private String clientPhoneNumber;
-    private String clientZodiacSign;
+    private String client_email;
+    private String client_phone_number;
+    private String client_zodiac_sign;
 
 
     public static OrderDto from(Order order) {
         return OrderDto.builder()
                 .id(order.getId())
-                .clientEmail(order.getClientEmail())
-                .clientPhoneNumber(order.getClientPhoneNumber())
-                .clientZodiacSign(order.getClientZodiacSign())
+                .client_email(order.getClient_email())
+                .client_phone_number(order.getClient_phone_number())
+                .client_zodiac_sign(order.getClient_phone_number())
                 .build();
     }
 

@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/stylePosts.css">
+<link rel="stylesheet" href="style/styleLog.css">
 </head>
 <#include 'top_nav.ftlh'>
 <body>
-<title>Добавление статьи</title>
+
+<div class="wrapper">
+
+    <div class="login_form">
+        <div class="title">
+            Добавление статьи
+        </div>
+        <form action="/createPost" method="post" novalidate enctype="multipart/form-data">
 
 
-    <br>
-    <h1>Статья</h1>
-    <br>
-    <form action="/createPost" method="post" novalidate enctype="multipart/form-data">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-        <p class="lead">
-            Введите название:<br>
-            <input name="title" type="text" ><br>
-        </p>
+            <div class="form_wrap">
+                <div class="input_wrap">
+                    <label>Введите название</label>
+                    <input type="text" name="title" >
+                </div>
+                <div class="input_wrap">
+                    <label>Введите статью</label>
+                    <textarea style="width:350px; height:150px;" name="content" ></textarea>
+                </div>
 
+                <div class="input_wrap">
+                    <input type="submit" value="Сохранить" class="submit_btn">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
-        <p class="lead">
-            Введите статью:<br>
-            <label>
-                <textarea name="content" placeholder="Статья..." ></textarea>
-            </label><br>
-        </p>
-
-        <p class="lead"><input type="submit" value="Сохранить"></p>
-        <br>
-    </form>
 </body>
 </html>

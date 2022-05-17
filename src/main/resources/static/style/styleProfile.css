@@ -5,6 +5,16 @@
     border-radius: 5px;
 }
 
+center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+}
+
 .profile-header-top {
     background: #1d2129;
     height: 200px;
@@ -73,6 +83,25 @@ ul.profile-header-nav li:first-child {
     border-radius: 3px;
 }
 
+.form_wrap .submit_btn:hover {
+    background: #ffd5d2;
+}
+
+.form_wrap .input_wrap {
+    margin-bottom: 15px;
+}
+
+.form_wrap .submit_btn {
+    width: 100%;
+    background: #ebd0ce;
+    padding: 10px;
+    border: 0;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
 #profile-button-add-cover:hover {
     cursor: pointer;
     color: #fff;
@@ -120,7 +149,7 @@ ul.profile-header-nav li:first-child {
     background: #ffffff;
     border: 1px solid #ccc;
     border-radius: 3px;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .profile-body-header {

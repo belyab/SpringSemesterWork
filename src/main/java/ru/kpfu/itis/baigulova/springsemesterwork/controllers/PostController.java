@@ -10,11 +10,11 @@ import ru.kpfu.itis.baigulova.springsemesterwork.dto.AccountDto;
 import ru.kpfu.itis.baigulova.springsemesterwork.dto.PostDto;
 import ru.kpfu.itis.baigulova.springsemesterwork.helper.TextHelper;
 import ru.kpfu.itis.baigulova.springsemesterwork.model.Post;
-import ru.kpfu.itis.baigulova.springsemesterwork.dto.PostCommentDto;
+
 import ru.kpfu.itis.baigulova.springsemesterwork.model.Account;
 import ru.kpfu.itis.baigulova.springsemesterwork.security.details.AccountUserDetails;
 import ru.kpfu.itis.baigulova.springsemesterwork.service.AccountService;
-import ru.kpfu.itis.baigulova.springsemesterwork.service.PostCommentService;
+
 import ru.kpfu.itis.baigulova.springsemesterwork.service.PostService;
 
 import javax.servlet.http.HttpSession;
@@ -29,13 +29,11 @@ public class PostController {
 
     private final PostService postService;
     private final AccountService accountService;
-    private final PostCommentService postCommentService;
 
     @Autowired
-    public PostController(PostService postService, AccountService accountService, PostCommentService postCommentService) {
+    public PostController(PostService postService, AccountService accountService) {
         this.postService = postService;
         this.accountService = accountService;
-        this.postCommentService = postCommentService;
     }
 
     @GetMapping("/allPosts")
@@ -67,61 +65,12 @@ public class PostController {
         return posts;
     }
 
-    @GetMapping("/allMyFindPosts")
-    @ResponseBody
-    public List<PostDto> getAllMyPostsByTitle(@RequestParam(value = "title",required = false) String title,
-                                                    Authentication authentication) {
-        Account account = ((AccountUserDetails) authentication.getPrincipal()).getAccount();
-        List<PostDto> posts = postService.getPostsByTitleLikeAndAccountId(title, account.getId());
 
-        posts = posts.stream()
-                .peek(post -> post.setText(TextHelper.editText(post.getText())))
-                .collect(Collectors.toList());
-
-        Collections.reverse(posts);
-
-        return posts;
-    }
-
-    @GetMapping("/myPosts")
-    public String getMyPosts(Authentication authentication, Model model) {
-
-        Account account = ((AccountUserDetails) authentication.getPrincipal()).getAccount();
-        List<PostDto> allPosts = postService.getAllByAccountId(account.getId());
-        Collections.reverse(allPosts);
-
-        allPosts = allPosts.stream()
-                .map(post -> new PostDto(post.getId(), post.getTitle(), TextHelper.editText(post.getText()),
-                         post.getData(), post.getAccountId(), post.getAccountEmail()))
-                .collect(Collectors.toList());
-
-        model.addAttribute("myPosts", allPosts);
-
-        return "myPosts";
-    }
-
-    @GetMapping("/deletePost/{postId}")
-    public String deletePost(@PathVariable("postId") Long postId) {
-        postService.deletePostById(postId);
-
-        return "redirect:/myPosts";
-    }
-
-    @GetMapping("/detailPost/{postId}/{isMyPost}")
-    public String getDetailPost(@PathVariable("postId") Long postId,
-                                   @PathVariable("isMyPost") Integer isMyPost, Model model) {
+    @GetMapping("/detailPost/{postId}")
+    public String getDetailPost(@PathVariable("postId") Long postId, Model model) {
 
         PostDto post = postService.getPostById(postId);
         AccountDto author = accountService.getAccountById(post.getAccountId());
-        List<PostCommentDto> comments = postCommentService.getAllByPostId(post.getId());
-
-        if (isMyPost == 1) {
-            model.addAttribute("isMyPost", true);
-        }
-
-        if (comments.size() != 0) {
-            model.addAttribute("postComments", comments);
-        }
 
         model.addAttribute("author", author);
         model.addAttribute("detailPost", post);
@@ -147,7 +96,7 @@ public class PostController {
 
         postService.save(post);
 
-        return "redirect:/profile";
+        return "redirect:/allPosts";
     }
 
 

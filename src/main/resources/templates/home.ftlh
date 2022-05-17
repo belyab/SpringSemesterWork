@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/styleHome.css">
+    <link rel="stylesheet" href="style/styleHome.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"
@@ -9,7 +9,6 @@
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
 </head>
 <body>
-<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 <section class="header">
     <#include 'top_nav.ftlh'>
     <div class="text-box">

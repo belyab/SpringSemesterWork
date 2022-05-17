@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styleAllPosts.css">
+    <link rel="stylesheet" href="style/styleAllPosts.css">
 </head>
 
 
@@ -28,7 +28,7 @@
                         html += "<div class='card'>"
                         html += "<div class='card-meta'>"
                         html += " <div class='card-body'>"
-                        html += "<h2 class='card-title'>"+"<a href='/detailPost/" + response[i]['id'] + "/0" + "'/>"+ response[i]['title']+"</a>"
+                        html += "<h2 class='card-title'>"+"<a href='/detailPost/" + response[i]['id'] + "'/>"+ response[i]['title']+"</a>"
                         html += "</h2>"
                         html += "</div>"
                         html += "<div class='card-bottom'>"
@@ -81,7 +81,7 @@
                 <div class="card">
                     <div class="card-meta">
                         <div class="card-body">
-                            <h2 class="card-title"><a href="/detailPost/${post.id}/0"> ${post.title}</a>
+                            <h2 class="card-title"><a href="/detailPost/${post.id}"> ${post.title}</a>
                             </h2>
 
                         </div>

@@ -31,9 +31,6 @@ public class Post {
     @JoinColumn(name = "account_id")
     private Account account;
 
-    @OneToMany()
-    private List<PostComment> comments;
-
     public Post(String title, String text, String data, Account account) {
         this.title = title;
         this.text = text;

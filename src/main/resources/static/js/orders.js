@@ -1,20 +1,20 @@
 document.getElementById('addOrder').addEventListener('click', async () => {
-    const inputEmail = document.getElementById('clientEmail');
-    const inputPhoneNumber = document.getElementById('clientPhoneNumber');
-    const inputZodiacSign = document.getElementById('clientZodiacSign');
+    const inputEmail = document.getElementById('client_email');
+    const inputPhoneNumber = document.getElementById('client_phone_number');
+    const inputZodiacSign = document.getElementById('client_zodiac_sign');
 
-    const clientEmail = inputEmail.value;
-    const clientPhoneNumber = inputPhoneNumber.value;
-    const clientZodiacSign = inputZodiacSign.value;
+    const client_email = inputEmail.value;
+    const client_phone_number = inputPhoneNumber.value;
+    const client_zodiac_sign = inputZodiacSign.value;
 
 
-        if (clientEmail, clientPhoneNumber, clientZodiacSign) {
+        if (client_email, client_phone_number, client_zodiac_sign) {
             const res = await fetch('http://localhost:8080/orders/addOrder', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({clientEmail,clientPhoneNumber,clientZodiacSign, completed: false})
+                body: JSON.stringify({client_email,client_phone_number,client_zodiac_sign, completed: false})
             });
 
             const orders = await res.json();
@@ -36,7 +36,7 @@ async function getAllOrders() {
 
 window.addEventListener('DOMContentLoaded', getAllOrders);
 
-function taskToHTML({id, email, phone, sign}) {
+function taskToHTML({id, client_email, client_phone_number, client_zodiac_sign}) {
     const orderList = document.getElementById('orders');
     orderList.insertAdjacentHTML('beforeend',
         `    <div class="form-check" id="orders${id}">
@@ -53,16 +53,17 @@ function taskToHTML({id, email, phone, sign}) {
  
                 <tr>
                     <td> ${id}}</td>
-                    <td> ${email}}</td>
-                    <td> ${phone}}</td>
-                    <td> ${sign}}</td>
+                    <td> ${client_email}}</td>
+                    <td> ${client_phone_number}}</td>
+                    <td> ${client_zodiac_sign}}</td>
 
                 </tr>
             </tbody>
+            <button onclick="deleteOrder(${id})" type="button" class="btn-close"
+                aria-label="Close" style="font-size: 10px"></button>
         </table>
 
-        <button onclick="deleteOrder(${id})" type="button" class="btn-close"
-                aria-label="Close" style="font-size: 10px"></button>
+        
     </div>`
     );
 }

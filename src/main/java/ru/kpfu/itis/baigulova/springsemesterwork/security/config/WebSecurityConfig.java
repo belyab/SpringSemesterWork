@@ -36,6 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
         http
                 .rememberMe()
                 .rememberMeParameter("rememberMe")
@@ -46,9 +47,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/home").permitAll()
                 .antMatchers("/signUp").permitAll()
                 .antMatchers("/signIn").permitAll()
-                .antMatchers("/detailPost").permitAll()
                 .antMatchers("/allPosts").permitAll()
-                .antMatchers("/detailPost/**").permitAll()
+                .antMatchers("/detailPost").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/profile/**").authenticated()
                 .antMatchers("/createPost/**").authenticated()

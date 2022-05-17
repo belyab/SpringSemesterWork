@@ -4,8 +4,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Register Account</title>
-    <link href="css/styleReg.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="css/styleHome.css">
+    <link href="style/styleReg.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="style/styleHome.css">
 </head>
 <body>
 <#include 'top_nav.ftlh'>
@@ -15,7 +15,6 @@
             Registration Form
         </div>
         <form action="/signUp" method="post">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
             <@spring.bind path="signUpForm"/>
             <div class="form_wrap">
                 <div class="input_grp">

@@ -2,8 +2,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Login</title>
-    <link href="css/styleLog.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="css/styleHome.css">
+    <link href="style/styleLog.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="style/styleHome.css">
 </head>
 <body>
 <#include 'top_nav.ftlh'>
@@ -14,7 +14,6 @@
             Login
         </div>
         <form action="/signIn" method="post">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 
             <div class="form_wrap">
                 <div class="input_wrap">

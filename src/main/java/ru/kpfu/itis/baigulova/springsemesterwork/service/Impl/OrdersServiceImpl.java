@@ -23,9 +23,9 @@ public class OrdersServiceImpl implements OrdersService {
     public OrderDto addOrder(OrderDto orderDto) {
         return from(orderRepository.save(
                 Order.builder()
-                        .clientEmail(orderDto.getClientEmail())
-                        .clientPhoneNumber(orderDto.getClientPhoneNumber())
-                        .clientZodiacSign(orderDto.getClientZodiacSign())
+                        .client_email(orderDto.getClient_email())
+                        .client_phone_number(orderDto.getClient_phone_number())
+                        .client_zodiac_sign(orderDto.getClient_zodiac_sign())
                         .build()));
     }
 

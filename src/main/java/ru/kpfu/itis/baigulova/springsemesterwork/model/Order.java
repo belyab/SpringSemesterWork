@@ -20,13 +20,13 @@ public class Order {
     private Long id;
 
     @Column(name = "client_email")
-    private String clientEmail;
+    private String client_email;
 
-    @Column(name = "client_phoneNumber")
-    private String clientPhoneNumber;
+    @Column(name = "client_phone_number")
+    private String client_phone_number;
 
-    @Column(name = "client_zodiacSign")
-    private String clientZodiacSign;
+    @Column(name = "client_zodiac_sign")
+    private String client_zodiac_sign;
 
 
 }

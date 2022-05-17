@@ -50,6 +50,4 @@ public class Account {
     @OneToMany(mappedBy = "account")
     private List<Post> posts;
 
-    @OneToMany(mappedBy = "account")
-    private List<PostComment> postComments;
 }
